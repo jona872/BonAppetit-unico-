@@ -1,0 +1,17 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+span.navthis {
+	padding: 4px 4px;
+	color: #F86C52;
+	font-weight: bold;
+}
+a.nav {
+	padding: 4px 4px;
+        color: #fff;
+        text-decoration:none;
+}
+a.nav:hover {
+
+} 

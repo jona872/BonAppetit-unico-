@@ -1,0 +1,656 @@
+html,body {margin:0;padding:0;height:100%;font-family: "Century Gothic";color: #222222;font-size: 12px;background-color: #F2F2F2;}
+
+h1, h2, h3 {
+	font-family: "Century Gothic", Georgia, "Times New Roman", Times, serif;
+	font-weight: normal;	
+}
+
+h1 {
+	letter-spacing: -1px;
+	font-size: 20px;
+        font-weight: 200;        
+        color:#F86C52;
+}
+
+h2 {
+	letter-spacing: -1px;
+	font-size: 3em;
+}
+
+h3 {
+	font-size: 1em;
+}
+
+#header { background-color:#222222; height: 100px; width: 100%; position: fixed; margin: 0 auto;	}
+
+#header #encabezado{width: 1000px;height: 100px;position: absolute;left: 50%; /* Buscamos el centro vertical (relativo) del navegador */margin-left: -500px; /* Restamos la mitad de la anchura del objeto con un margin-left */}
+
+#body {padding-top:135px;}
+
+#salir{
+float: right;
+position: static;
+margin-right: 0px;
+margin-top: 25px;    
+}
+
+#footer {position:fixed; bottom:0px; width:100%; height:30px; background-color:#333333;}
+
+#mesas{width: 900px; position: absolute; left: 55%; margin-left: -500px; margin-bottom: 50px; margin-top: 50px; }
+
+/* Mesas Libres */
+#mesas .mesa{box-shadow: 0 0 10px rgba(100, 100, 100, 0.2) inset,1px 1px 1px #CCC; width: 72px; height: 50px; background-color: #77B700; float: left; margin: 3px; text-align:right; border:solid 2px #222222; -moz-border-radius: 10px; border-radius: 10px; opacity:1.0; filter:alpha(opacity=100); /* For IE8 and earlier */ position: relative;}
+#mesas .mesa:hover{}
+#mesas .mesa .numero{font-family: "Century Gothic"; font-size: 1.5em; font-weight: bold; color: #F2F2F2; text-align: center;}
+#mesas .mesa .personas{font-family: "Century Gothic"; font-size: 1.2em; font-weight: bold ; position:absolute; width: 100%; bottom: 15px; border:none; text-align: left; color: #222222; float: left; margin-left: 4px;}
+#mesas .mesa .reloj{position:absolute; width: 100%; bottom: 0px; border:none; text-align: center; background-color: #222222; color: #F2F2F2; -moz-border-radius:0px 0px 7px 7px; border-radius: 0px 0px 7px 7px; opacity:1.0; filter:alpha(opacity=100);}
+/****************************************/
+
+/* Mesas Ocupadas */
+#mesas .mesaO{box-shadow: 0 0 10px rgba(100, 100, 100, 0.2) inset,1px 1px 1px #CCC; width: 72px; height: 50px; background-color: #F86C52; float: left; margin: 3px; text-align:right; border:solid 2px #222222; -moz-border-radius: 10px; border-radius: 10px; opacity:1.0; filter:alpha(opacity=100); /* For IE8 and earlier */ position: relative;}
+#mesas .mesaO:hover{}
+#mesas .mesaO .numero{font-family: "Century Gothic"; font-size: 1.5em; font-weight: bold; color: #F2F2F2; text-align: center;}
+#mesas .mesaO .personas{font-family: "Century Gothic"; font-size: 1.2em; font-weight: bold ; position:absolute; width: 100%; bottom: 15px; border:none; text-align: left; color: #222222; float: left; margin-left: 4px;}
+#mesas .mesaO .pedido{font-family: "Century Gothic"; font-size: 1.2em; font-weight: bold ; position:absolute; width: 100%; bottom: 15px; border:none; text-align: right; color: #222222; padding-right: 10px;}
+#mesas .mesaO .pedido span{margin-right: 4px;}
+#mesas .mesaO .reloj{position:absolute; width: 100%; bottom: 0px; border:none; text-align: center; background-color: #222222; color: #F2F2F2; -moz-border-radius:0px 0px 7px 7px; border-radius: 0px 0px 7px 7px; opacity:1.0; filter:alpha(opacity=100);}
+/****************************************/
+
+/* Mesas Ocupadas TIEMPO SE PASO DE COCCION*/
+#mesas .mesaA{box-shadow: 0 0 10px rgba(100, 100, 100, 0.2) inset,1px 1px 1px #CCC; width: 72px; height: 50px; background-color: #222222; float: left; margin: 3px; text-align:right; border:solid 2px #222222; -moz-border-radius: 10px; border-radius: 10px; opacity:1.0; filter:alpha(opacity=100); /* For IE8 and earlier */ position: relative;}
+#mesas .mesaA:hover{}
+#mesas .mesaA .numero{font-family: "Century Gothic"; font-size: 1.5em; font-weight: bold; color: #F2F2F2; text-align: center;}
+#mesas .mesaA .personas{font-family: "Century Gothic"; font-size: 1.2em; font-weight: bold ; position:absolute; width: 100%; bottom: 15px; border:none; text-align: left; color: #F2F2F2; float: left; margin-left: 4px;}
+#mesas .mesaA .pedido{font-family: "Century Gothic"; font-size: 1.2em; font-weight: bold ; position:absolute; width: 100%; bottom: 15px; border:none; text-align: right; color: #F2F2F2; padding-right: 10px;}
+#mesas .mesaA .pedido span{margin-right: 4px;}
+#mesas .mesaA .reloj{position:absolute; width: 100%; bottom: 0px; border:none; text-align: center; background-color: #222222; color: #F2F2F2; -moz-border-radius:0px 0px 7px 7px; border-radius: 0px 0px 7px 7px; opacity:1.0; filter:alpha(opacity=100);}
+/****************************************/
+
+/* Mesas Cobrando */
+#mesas .mesaC{box-shadow: 0 0 10px rgba(100, 100, 100, 0.2) inset,1px 1px 1px #CCC; width: 72px; height: 50px; background-color: #015BF4; float: left; margin: 3px; text-align:right; border:solid 2px #222222; -moz-border-radius: 10px; border-radius: 10px; opacity:1.0; filter:alpha(opacity=100); /* For IE8 and earlier */ position: relative;}
+#mesas .mesaC:hover{}
+#mesas .mesaC .numero{font-family: "Century Gothic"; font-size: 1.5em; font-weight: bold; color: #F2F2F2; text-align: center;}
+#mesas .mesaC .personas{font-family: "Century Gothic"; font-size: 1.2em; font-weight: bold ; position:absolute; width: 100%; bottom: 15px; border:none; text-align: left; color: #222222; float: left; margin-left: 4px;}
+#mesas .mesaC .reloj{position:absolute; width: 100%; bottom: 0px; border:none; text-align: center; background-color: #222222; color: #F2F2F2; -moz-border-radius:0px 0px 7px 7px; border-radius: 0px 0px 7px 7px; opacity:1.0; filter:alpha(opacity=100);}
+/****************************************/
+
+#usuario{color:#F86C52;font-size: 1.2em; line-height: 0px;text-align: right;margin-top: 15px;}
+#usuario span{color:#F2F2F2;font-size: 1.2em;line-height: 0px;}
+
+#fecha{color:#F86C52;font-size: 0.8em; text-align: right;}
+#fecha span{color:#F2F2F2;}
+
+
+/* select con ajax*/
+
+#ajax_listOfOptions{position: absolute;/* Never change this one */ width: 500px;/* Width of box */ height: 250px;/* Height of box */ overflow: auto;/* Scrolling features */ border: 1px solid #5789D5;/* Dark green border */ background-color: #FFF;/* White background color */ text-align: left; font-size: 12px; z-index: 100;}
+
+#ajax_listOfOptions div{/* General rule for both .optionDiv and .optionDivSelected */margin: 1px; padding: 1px; cursor: pointer; font-size: 0.9em;}
+
+#ajax_listOfOptions .optionDiv{/* Div for each item in list */}
+
+#ajax_listOfOptions .optionDivSelected{/* Selected item in the list */background-color: #2580a2; color: #FFF;}
+
+#ajax_listOfOptions_iframe{background-color: #F00; position: absolute; z-index: 5;}
+
+#ajax_listOfOptionsSmall{position: absolute;/* Never change this one */ width: 500px;/* Width of box */ height: 250px;/* Height of box */ overflow: auto;/* Scrolling features */ border: 1px solid #5789D5;/* Dark green border */ background-color: #FFF;/* White background color */ text-align: left; font-size: 12px; z-index: 5000;}
+
+#ajax_listOfOptionsSmall div{/* General rule for both .optionDiv and .optionDivSelected */margin: 1px; padding: 1px; cursor: pointer; font-size: 0.9em;}
+
+#ajax_listOfOptionsSmall .optionDiv{/* Div for each item in list */}
+
+#ajax_listOfOptionsSmall .optionDivSelected{/* Selected item in the list */background-color: #2580a2; color: #FFF;}
+
+#ajax_listOfOptionsSmall_iframe{background-color: #F00; position: absolute; z-index: 5;}
+
+
+ 
+form#two {
+min-height: 100%;
+margin:0 auto;
+font-family: "Century Gothic","Trebuchet MS", Trebuchet, Verdana, Arial, Helvetica, sans-serif;	
+font-size: 14px;
+}
+
+form#two fieldset {
+width:62%; 
+display:block; 
+border:1px solid #ddd; 
+background:#fff url(../images/article_bg.gif) repeat-x left top;
+padding:5px; 
+margin:0 auto;
+margin-top: 5%;
+}
+
+form#two fieldset h1 {
+letter-spacing: -1px;
+font-size: 20px;
+font-family: "Century Gothic","Trebuchet MS", Trebuchet, Verdana, Arial, Helvetica, sans-serif;	
+font-weight: 200;
+text-transform: uppercase;
+padding-bottom: 20px;
+color:#F86C52;
+text-align: center;
+font-weight: bold;
+}
+
+form#two label {
+margin-left: 5%;
+color: #222222; 
+text-align: left;
+width: 100px;
+padding: 5px;
+display: block;
+float:left;
+}
+
+form#two .textolargo {
+width: 70%;
+}
+
+form#two .falta_dato {
+color: #444;
+width: 10px;
+background:#fff url(../images/requerido.png) no-repeat;
+}
+
+
+/*form#two .mesa{font-weight: bold;
+color: #0087c7;
+font-size: 30px;
+float:right;
+margin-right:20%; }*/
+
+
+form#two input[type = "text"], input[type = "password"]{
+padding:0 2px;
+margin-bottom:0.3em;
+padding: 6px;
+background-color: #FFF;
+font-family: "Century Gothic";
+border: none; 
+-moz-border-radius: 5px;
+border-radius: 5px; 
+border:solid 1px #ADD8E6; 
+padding:5px;
+}
+
+form#two select {
+padding:0 2px;
+margin-bottom:0.3em;
+padding: 6px;
+background-color: #FFF;
+font-family: "Century Gothic";
+border: none; 
+-moz-border-radius: 5px;
+border-radius: 5px; 
+border:solid 1px #ADD8E6; 
+padding:5px;
+}
+
+form#two p {
+float:right;
+margin: 0px 5% 15px 5px;
+}
+
+form#two input[type = "button"], input[type = "reset"] {
+margin-bottom:0.3em;
+font-family: "Century Gothic";
+-moz-border-radius: 5px;
+border-radius: 5px; 
+cursor: pointer;
+background-color: #2580a2;
+color:#FFF;
+border:solid 1px #2580a2;
+padding:5px;
+}
+
+form#two input[type = "button"]:hover {
+background-color: #333;
+border:solid 1px #333;
+}
+
+form#two input  [ type = "radio" ] {
+padding:0 2px;
+margin-bottom:0.3em;
+}
+
+form#two input  [ type = "checkbox" ] {
+padding:0 2px;
+margin-bottom:0.3em;
+}
+
+form#two textarea {
+width:410px; 
+height:auto;
+border:1px solid #003399; 
+padding:0.5em; 
+overflow:auto; 
+}
+
+form#two option {
+background:#C5D9FF; 
+color:#003399;
+}
+
+form#two optgroup {
+background: #4D89FF; 
+color:#FFF; 
+}
+
+form#two optgroup option {
+background:#C5D9FF; 
+color:#003399;
+}
+
+form#frm_agregar,form#frm_buscar{
+min-height: 100%;
+margin:0 auto;
+font-family: "Century Gothic","Trebuchet MS", Trebuchet, Verdana, Arial, Helvetica, sans-serif;	
+font-size: 14px;
+}
+
+form#frm_agregar fieldset {
+width:40%; 
+display:block; 
+/*border:1px solid #ddd; */
+/*background:#fff url(../images/article_bg.gif) repeat-x left top;*/
+padding:5px; 
+margin:0 auto;
+margin-top: 2%;
+border: none;
+/*border:none;
+background-color: #333;
+border-radius: 10px;*/
+}
+
+form#frm_buscar fieldset {
+width:80%; 
+display:block; 
+/*border:1px solid #ddd; */
+/*background:#fff url(../images/article_bg.gif) repeat-x left top;*/
+padding:5px; 
+margin:0 auto;
+margin-top: 2%;
+border: none;
+/*border:none;
+background-color: #333;
+border-radius: 10px;*/
+}
+
+
+form#frm_agregar fieldset h1, form#frm_buscar fieldset h1 {
+letter-spacing: -1px;
+font-size: 20px;
+font-family: "Century Gothic","Trebuchet MS", Trebuchet, Verdana, Arial, Helvetica, sans-serif;	
+font-weight: 200;
+text-transform: uppercase;
+padding-bottom: 0px;
+color:#F86C52;
+text-align: center;
+/*text-align: left;*/
+font-weight: bold;
+
+}
+
+form#frm_agregar label, form#frm_buscar label {
+margin-left: 5%;
+color: #222222; 
+text-align: left;
+width: 100px;
+padding: 5px;
+/*display: block;*/
+/*float:left;*/
+}
+
+form#frm_agregar .falta_dato, form#frm_buscar  .falta_dato{
+color: #444;
+width: 10px;
+background:#fff url(../images/requerido.png) no-repeat;
+}
+
+/* Mesas Libres */
+
+/*form#frm_agregar .mesa{
+    font-weight: bold;        
+    float:left;
+    margin-right:3%; 
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: #222222; 
+    margin-left: 15px; 
+    text-align:center; 
+    border:solid 2px #222222; 
+    -moz-border-radius: 10px; 
+    border-radius: 10px; opacity:1.0; filter:alpha(opacity=100);  For IE8 and earlier  
+}*/
+
+/*form#frm_agregar .mesa:hover{opacity:0.6; filter:alpha(opacity=60);  For IE8 and earlier  -webkit-transition: all 0.5s ease-in-out;}*/
+
+/*form#frm_agregar .mesa .numero{font-family: "Century Gothic"; font-size: 35px; font-weight: bold; color: #F86C52; text-align: center;}*/
+
+/*form#frm_agregar  .mesa .reloj{ width: 100%; bottom: 0px; border:none; text-align: center; background-color: #222222; color: #FFF;}*/
+
+form#frm_agregar input[type = "text"], form#frm_buscar input[type = "text"] {
+padding:0 2px;
+margin-bottom:0.3em;
+padding: 6px;
+background-color: #FFF;
+font-family: "Century Gothic";
+border: none; 
+-moz-border-radius: 5px;
+border-radius: 5px; 
+border:solid 1px #ADD8E6; 
+padding:5px;
+}
+
+form#frm_agregar select, form#frm_buscar select {
+padding:0 2px;
+margin-bottom:0.3em;
+padding: 6px;
+background-color: #FFF;
+font-family: "Century Gothic";
+border: none; 
+-moz-border-radius: 5px;
+border-radius: 5px; 
+border:solid 1px #ADD8E6; 
+padding:5px;
+}
+
+form#frm_agregar p, form#frm_buscar p {
+text-align: left;
+margin-left:5%;
+margin-bottom: 5%;
+}
+
+form#frm_agregar span, form#frm_buscar span {
+font-weight: bold;
+color: #0087c7;
+font-size: 30px;
+float:right;
+margin-right:20%;
+
+}
+
+form input[type = "button"] {
+margin-bottom:0.3em;
+font-family: "Century Gothic";
+-moz-border-radius: 5px;
+border-radius: 5px; 
+cursor: pointer;
+background-color: #2580a2;
+color:#FFF;
+border:solid 1px #2580a2;
+padding:5px;
+}
+
+form input[type = "button"]:hover {
+background-color: #333;
+border:solid 1px #333;
+}
+
+form input[type = "submit"] {
+margin-bottom:0.3em;
+font-family: "Century Gothic";
+-moz-border-radius: 5px;
+border-radius: 5px; 
+cursor: pointer;
+background-color: #2580a2;
+color:#FFF;
+border:solid 1px #2580a2;
+padding:5px;
+}
+
+form input[type = "submit"]:hover {
+background-color: #333;
+border:solid 1px #333;
+}
+
+
+form#frm_agregar input  [ type = "radio" ] {
+padding:0 2px;
+margin-bottom:0.3em;
+}
+
+form#frm_agregar input  [ type = "checkbox" ] {
+padding:0 2px;
+margin-bottom:0.3em;
+}
+
+form#frm_agregar textarea {
+width:470px; 
+height:20px;
+padding:0 2px;
+margin-bottom:0.3em;
+padding: 6px;
+background-color: #FFF;
+font-family: "Century Gothic";
+border: none; 
+-moz-border-radius: 5px;
+border-radius: 5px; 
+border:solid 1px #ADD8E6; 
+padding:5px;
+}
+
+form#frm_agregar option {
+background:#C5D9FF; 
+color:#003399;
+}
+
+form#frm_agregar optgroup {
+background: #4D89FF; 
+color:#FFF; 
+}
+
+form#frm_agregar optgroup option {
+background:#C5D9FF; 
+color:#003399;
+}
+
+
+
+form#buscar {
+height: 50px;
+margin:0 auto;
+font-family: "Trebuchet MS", Trebuchet, Verdana, Arial, Helvetica, sans-serif;	
+font-size: 14px;
+}
+
+form#buscar label {
+margin-left: 10px;
+color: #003399; 
+}
+
+form#buscar fieldset {
+width:740px; 
+display:block; 
+border:1px solid #6FA7D1; 
+padding:5px; 
+margin:0 auto;
+line-height:1.2em;
+font-family: "Helvetica", Sans-Serif;
+text-align: left;
+margin-top: 10px;
+}
+
+
+form#buscar legend {
+color: #E17919;
+margin: 0 0 5px 10px; 
+height: 24px;
+line-height: 24px;
+width:187px; 
+border: 1px solid #C5D9FF;
+padding: 0 5px;
+background: #fff;
+font-size: 90%;
+}
+
+
+table#estados#estados, table#estados td, table#estados tr {
+	padding:0px;
+	border-spacing: 0px;
+}
+
+table#estados {
+	border:1px black solid;
+	border-radius:5px;
+	min-width:400px;
+	font-family: Helvetica,Arial;
+}
+
+table#estados td {
+	padding:6px;
+}
+
+table#estados tr:first-child td:first-child {
+	border-radius:5px 0px 0px 0px;
+}
+
+table#estados tr:first-child td:last-child {
+	border-radius:0px 5px 0px 0px;
+}
+
+table#estados tr:last-child td:first-child {
+	border-radius:0px 0px 0px 5px;
+}
+
+table#estados tr:last-child td:last-child {
+	border-radius:0px 0px 5px 0px;
+}
+
+table#estados td:not(:last-child) {
+	border-right:1px #666 solid;
+}
+
+
+table#estados tr:nth-child(2n) {
+	background: #87CEEB;
+}
+
+table#estados tr:nth-child(2n+1){
+	background: #ADD8E6;
+}
+
+table#estados tr.cocina:nth-child(2n) {
+	background: #FFFF33;
+}
+
+table#estados tr.cocina:nth-child(2n+1){
+	background: #FFFF99;
+}
+table#estados.header tr.cocina:not(:first-child):hover, table#estados:not(.header) tr.cocina:hover {
+	background:#FFFFCC;
+}
+
+table#estados tr.terminado:nth-child(2n) {
+	background: #D7D7D7;
+}
+
+table#estados tr.terminado:nth-child(2n+1){
+	background: #E4E4E4;
+}
+
+table#estados.header tr.terminado:not(:first-child):hover, table#estados:not(.header) tr.terminado:hover {
+	background:#F2F2F2;
+}
+
+table#estados.header tr:not(:first-child):hover, table#estados:not(.header) tr:hover {
+	background:#E0FFFF;
+}
+
+table#estados:not(.header) tr {
+	text-align: left;
+}
+
+table#estados.header tr:first-child {
+	font-weight: bold;
+	color:#fff;
+	background-color: #444;
+	border-bottom:1px #000 solid;
+}
+
+table#estados.header tr:nth-child(n+2) {
+	text-align: right;
+}
+
+table .agregaCantidad{
+    vertical-align: bottom;
+}
+
+table .editarComanda{
+    vertical-align: bottom;
+    padding-right: 10px;
+}
+
+.estiloTotal{
+    color:#F2F2F2; 
+    
+    background-color: #333333; 
+    border-radius: 10px; 
+    width: 200px;
+}
+
+table#estados input[type="checkbox"] {
+    width: 20px;
+    height: 20px;    
+    margin: 0 auto;
+}
+
+/* menu ubicacion */
+#ubicacion{width: 1000px; margin: 0 auto; text-align: right;}
+
+.ubicacion a{
+    text-decoration: none;
+    color: black;
+    opacity: 1.0;
+    transition: 0.5s;
+}
+
+.ubicacion a:hover{
+    opacity: 0.5;
+    transition: 0.5s;
+ }
+
+.ubicacion a span{
+    margin-left: 20px;
+}
+
+.ubicacion a li{
+    display: inline;
+    list-style-type: none;
+    padding: 10px;
+    background-color:#F2F2F2;
+    border-radius: 3px;
+
+    background-position: left;
+    background-position-x: 5px;
+    background-image: url(../images/punto.png);
+    background-repeat: no-repeat;
+    
+    box-shadow: 0 0 10px rgba(100, 100, 100, 0.2) inset,1px 1px 1px #CCC;
+    line-height: 1;
+    margin: 1px;
+    
+    
+}
+
+.ubicacion a .sel{
+    display: inline;
+    list-style-type: none;
+    padding: 10px;
+    background-color:#F86C52;		    
+    border-radius: 3px;
+
+    background-position: left;
+    background-position-x: 5px;
+    background-image: url(../images/punto.png);
+    background-repeat: no-repeat;
+    
+    box-shadow: 0 0 10px rgba(100, 100, 100, 0.2) inset,1px 1px 1px #CCC;
+    line-height: 1;
+    margin: 1px;
+    
+    
+}
